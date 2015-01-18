@@ -107,7 +107,7 @@ class Discovery
     protected function fetchUrl($url)
     {
         $curl = new Curl\Request($url);
-        $curl->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+        $curl->setUserAgent('Mozilla/5.0 (alb-oembed)');
         $response = $curl->get();
         return $response->getResponse();
     }
