@@ -97,6 +97,9 @@ class Provider
             foreach($root->childNodes as $node) {
                 $name = $node->nodeName;
                 $text = $node->textContent;
+                if (preg_match('/^<!\[CDATA\[(.*)]]>$/', $text)) {
+                    $text = substr($text, 9, -3);
+                }
                 $data[$name] = $text;
             }
         }
